@@ -4,6 +4,8 @@ from courses.models import Course, Subject
 
 
 class CourseSerializer(serializers.ModelSerializer):
+    modules = serializers.StringRelatedField(many=True, read_only=True)
+
     class Meta:
         model = Course
         fields = [
