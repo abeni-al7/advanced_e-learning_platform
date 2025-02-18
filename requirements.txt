@@ -12,7 +12,7 @@ idna==3.10
 pillow==10.3.0
 pymemcache==4.0.0
 redis==5.0.4
-requests==2.32.3
+requests==2.31.0
 setuptools==75.8.0
 sqlparse==0.5.3
 urllib3==2.3.0

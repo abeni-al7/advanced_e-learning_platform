@@ -19,6 +19,7 @@ from courses.models import Course, Subject
 class CourseViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Course.objects.prefetch_related("modules")
     serializer_class = CourseSerializer
+    pagination_class = StandardPagination
 
     @action(
         detail=True,
