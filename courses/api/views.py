@@ -2,6 +2,7 @@ from django.db.models import Count
 from django.shortcuts import get_object_or_404
 from rest_framework import viewsets
 from rest_framework.authentication import BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from courses.api.pagination import StandardPagination
@@ -23,6 +24,7 @@ class SubjectViewSet(viewsets.ReadOnlyModelViewSet):
 
 class CourseEnrollView(APIView):
     authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
 
     def post(self, request, pk, format=None):
         course = get_object_or_404(Course, pk=pk)
