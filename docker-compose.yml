@@ -42,6 +42,7 @@ services:
       - uwsgi_socket:/tmp
     ports:
       - "80:80"
+      - "443:443"
 
 volumes:
   uwsgi_socket:
