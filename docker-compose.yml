@@ -18,10 +18,12 @@ services:
   
   web:
     build: .
-    command: ["./wait-for-it.sh", "db:5432", "--", "uwsgi", "--ini", "/code/config/uwsgi/uwsgi/ini"]
+    command: ["./wait-for-it.sh", "db:5432", "--",
+              "uwsgi", "--ini", "/code/config/uwsgi/uwsgi.ini"]
     restart: always
     volumes:
       - .:/code
+      - uwsgi_socket:/tmp
     environment:
       - DJANGO_SETTINGS_MODULE=educa.settings.prod
       - POSTGRES_DB=postgres
@@ -37,5 +39,9 @@ services:
     volumes:
       - ./config/nginx:/etc/nginx/templates
       - .:/code
+      - uwsgi_socket:/tmp
     ports:
       - "80:80"
+
+volumes:
+  uwsgi_socket:
