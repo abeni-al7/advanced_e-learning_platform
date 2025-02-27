@@ -10,3 +10,4 @@ media/
 data/
 static/
 ssl/
+wait.sh
