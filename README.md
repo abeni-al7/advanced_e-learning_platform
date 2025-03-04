@@ -110,13 +110,13 @@ This project is an advanced e-learning platform built with Django, Channels, and
 1.  **Build the Docker image:**
 
     ```bash
-    docker build -t elearning .
+    docker build .
     ```
 
 2.  **Run with Docker Compose:**
 
     ```bash
-    docker-compose up -d
+    docker compose up -d
     ```
 
 ## Configuration
